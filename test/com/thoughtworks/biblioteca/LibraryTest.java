@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 
+import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -18,5 +19,26 @@ public class LibraryTest {
 
         verify(printStream).println("Welcome!");
     }
+
+
+    @Test
+    public void shouldPrintNothingWhenNoBooks() {
+        PrintStream printStream = mock(PrintStream.class);
+        Library library = new Library(printStream);
+
+        library.listBooks();
+
+        verify(printStream).println(contains(""));
+    }
+
+//    @Test
+//    public void shouldPrintBookWhenOneBook() {
+//
+//    }
+//
+//    @Test
+//    public void shouldPrintBooksWhenOneBook() {
+//
+//    }
 
 }
