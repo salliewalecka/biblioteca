@@ -27,4 +27,8 @@ public class Library {
 
         printStream.println(ret);
     }
+
+    public void addBook(String s) {
+        books.add(s);
+    }
 }
